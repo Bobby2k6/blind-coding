@@ -224,21 +224,31 @@ const Contest = () => {
     setFinalScore(totalPoints);
     setContestFinished(true);
 
-    const { data, error } = await supabase.from("participants").insert({
+    await supabase.from("participants").insert({
       roll: participant.rollNumber,
       name: participant.name,
       college: participant.college,
       points: totalPoints,
       total_time: totalTime,
+
       q1: allResults[0]?.passed || 0,
       q2: allResults[1]?.passed || 0,
       q3: allResults[2]?.passed || 0,
       q4: allResults[3]?.passed || 0,
       q5: allResults[4]?.passed || 0,
-    });
 
-    console.log("Supabase insert result:", data);
-    console.error("Supabase insert error:", error);
+      q1_code: codes[0] || "",
+      q2_code: codes[1] || "",
+      q3_code: codes[2] || "",
+      q4_code: codes[3] || "",
+      q5_code: codes[4] || "",
+
+      q1_lang: languages[0] || "",
+      q2_lang: languages[1] || "",
+      q3_lang: languages[2] || "",
+      q4_lang: languages[3] || "",
+      q5_lang: languages[4] || "",
+    });
   };
 
   if (!pool) return null;

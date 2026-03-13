@@ -10,6 +10,8 @@ interface LeaderboardEntry {
   points: number;
   totalTime: number;
   questionTimes: Record<number, number>;
+  codes: string[];
+  languages: string[];
 }
 
 const Admin = () => {
@@ -29,6 +31,7 @@ const Admin = () => {
       college: row.college,
       points: row.points,
       totalTime: row.total_time,
+
       questionTimes: {
         0: row.q1,
         1: row.q2,
@@ -36,6 +39,16 @@ const Admin = () => {
         3: row.q4,
         4: row.q5,
       },
+
+      codes: [row.q1_code, row.q2_code, row.q3_code, row.q4_code, row.q5_code],
+
+      languages: [
+        row.q1_lang,
+        row.q2_lang,
+        row.q3_lang,
+        row.q4_lang,
+        row.q5_lang,
+      ],
     }));
 
     // Sort by points desc, then time asc
@@ -105,6 +118,7 @@ const Admin = () => {
                     <th className="text-center px-4 py-3 text-primary">
                       Q1-Q5 Score
                     </th>
+                    <th className="text-center px-4 py-3 text-primary">Code</th>
                   </tr>
                 </thead>
 
@@ -160,6 +174,28 @@ const Admin = () => {
                             {entry.questionTimes[q] ?? "-"}
                             {q < 4 ? " | " : ""}
                           </span>
+                        ))}
+                      </td>
+                      <td className="px-4 py-3 text-center">
+                        {[0, 1, 2, 3, 4].map((q) => (
+                          <button
+                            key={q}
+                            onClick={() => {
+                              const code = entry.codes[q] || "";
+                              const blob = new Blob([code], {
+                                type: "text/plain",
+                              });
+                              const url = URL.createObjectURL(blob);
+
+                              const a = document.createElement("a");
+                              a.href = url;
+                              a.download = `${entry.rollNumber}_Q${q + 1}.${entry.languages[q] || "txt"}`;
+                              a.click();
+                            }}
+                            className="text-xs bg-primary text-white px-2 py-1 rounded mx-1"
+                          >
+                            Q{q + 1}
+                          </button>
                         ))}
                       </td>
                     </tr>
