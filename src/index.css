@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 7%;
+    --foreground: 140 15% 88%;
+
+    --card: 220 18% 11%;
+    --card-foreground: 140 15% 88%;
+
+    --popover: 220 18% 11%;
+    --popover-foreground: 140 15% 88%;
+
+    --primary: 142 72% 42%;
+    --primary-foreground: 220 20% 7%;
+
+    --secondary: 220 15% 16%;
+    --secondary-foreground: 140 15% 88%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 180 55% 42%;
+    --accent-foreground: 220 20% 7%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 16%;
+    --ring: 142 72% 42%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 220 18% 9%;
+    --sidebar-foreground: 140 15% 88%;
+    --sidebar-primary: 142 72% 42%;
+    --sidebar-primary-foreground: 220 20% 7%;
+    --sidebar-accent: 220 15% 16%;
+    --sidebar-accent-foreground: 140 15% 88%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 142 72% 42%;
+
+    --terminal-glow: 142 72% 42%;
+    --cyan: 180 55% 42%;
+    --amber: 38 92% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  code, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .terminal-glow {
+    text-shadow: 0 0 10px hsl(var(--terminal-glow) / 0.5),
+                 0 0 20px hsl(var(--terminal-glow) / 0.3);
+  }
+
+  .blur-code {
+    filter: blur(8px);
+    user-select: none;
+    transition: filter 0.5s ease;
+  }
+
+  .blur-code.revealed {
+    filter: blur(0);
+  }
+
+  .card-glow {
+    box-shadow: 0 0 20px hsl(var(--terminal-glow) / 0.08),
+                inset 0 1px 0 hsl(var(--terminal-glow) / 0.05);
+  }
+
+  .scanline {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(var(--terminal-glow) / 0.03) 2px,
+      hsl(var(--terminal-glow) / 0.03) 4px
+    );
+  }
+}
