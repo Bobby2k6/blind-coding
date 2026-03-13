@@ -56,6 +56,15 @@ const Contest = () => {
   const startTime = participant.startTime || Date.now();
 
   useEffect(() => {
+    const disableRightClick = (e: MouseEvent) => e.preventDefault();
+    document.addEventListener("contextmenu", disableRightClick);
+
+    return () => {
+      document.removeEventListener("contextmenu", disableRightClick);
+    };
+  }, []);
+  
+  useEffect(() => {
     const poolNum = parseInt(localStorage.getItem("selectedPool") || "0");
     const found = pools.find((p) => p.poolNumber === poolNum);
 

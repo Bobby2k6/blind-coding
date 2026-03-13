@@ -76,6 +76,20 @@ const CodeEditor = ({
           onChange={(e) => onCodeChange(e.target.value)}
           disabled={isSubmitted}
           spellCheck={false}
+          onCopy={(e) => e.preventDefault()}
+          onPaste={(e) => {
+            e.preventDefault();
+            alert("Copy-paste is disabled in Blind Coding mode.");
+          }}
+          onCut={(e) => e.preventDefault()}
+          onContextMenu={(e) => e.preventDefault()}
+          onKeyDown={(e) => {
+            if (e.ctrlKey || e.metaKey) {
+              if (["v", "c", "x"].includes(e.key.toLowerCase())) {
+                e.preventDefault();
+              }
+            }
+          }}
           className={`w-full h-full min-h-[300px] bg-secondary/30 p-4 font-mono text-sm text-foreground resize-none focus:outline-none ${
             isBlurred ? "blur-code" : ""
           } ${isSubmitted ? "opacity-80" : ""}`}
