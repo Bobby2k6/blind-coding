@@ -189,7 +189,8 @@ const Admin = () => {
 
                               const a = document.createElement("a");
                               a.href = url;
-                              a.download = `${entry.rollNumber}_Q${q + 1}.${entry.languages[q] || "txt"}`;
+                              const ext =entry.languages[q] === "javascript" ? "js": entry.languages[q] || "txt";
+                              a.download = `${entry.rollNumber}_Q${q + 1}.${ext}`;
                               a.click();
                             }}
                             className="text-xs bg-primary text-white px-2 py-1 rounded mx-1"

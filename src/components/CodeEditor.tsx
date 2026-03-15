@@ -11,13 +11,14 @@ interface Props {
   onSubmit: () => void;
 }
 
-const languages = ["python", "c", "cpp", "java"];
+const languages = ["python", "c", "cpp", "java", "javascript"];
 
 const languageLabels: Record<string, string> = {
   python: "Python 🐍",
   c: "C",
   cpp: "C++",
-  java: "Java ☕",
+  java: "Java ",
+  javascript: "JavaScript",
 };
 
 const CodeEditor = ({
@@ -40,7 +41,7 @@ const CodeEditor = ({
           <div className="w-3 h-3 rounded-full bg-primary" />
 
           <span className="ml-3 text-xs font-mono text-muted-foreground">
-            editor.{language === "cpp" ? "cpp" : language}
+            editor.{language === "cpp"? "cpp": language === "javascript" ? "js" : language}
           </span>
         </div>
 

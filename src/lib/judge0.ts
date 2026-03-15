@@ -8,6 +8,7 @@ const languageMap: Record<string, number> = {
   c: 50,
   cpp: 54,
   java: 62,
+  javascript: 63,
 };
 
 export async function runCode(code: string, language: string, input: string) {
