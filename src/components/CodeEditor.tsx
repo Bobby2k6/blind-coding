@@ -41,7 +41,7 @@ const CodeEditor = ({
           <div className="w-3 h-3 rounded-full bg-primary" />
 
           <span className="ml-3 text-xs font-mono text-muted-foreground">
-            editor.{language === "cpp"? "cpp": language === "javascript" ? "js" : language}
+            editor.{language === "cpp" ? "cpp" : language === "javascript" ? "js" : language === "python" ? "py" : language}
           </span>
         </div>
 

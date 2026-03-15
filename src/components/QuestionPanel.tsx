@@ -2,6 +2,7 @@ import type { Question } from "@/data/questions";
 
 interface Props {
   question: Question;
+  language: string;
   result?: {
     passed: number;
     total: number;
@@ -17,7 +18,7 @@ interface Props {
   };
 }
 
-const QuestionPanel = ({ question, result }: Props) => {
+const QuestionPanel = ({ question, result, language }: Props) => {
   const visibleTests = question.testCases.filter((tc) => !tc.hidden);
 
   return (
@@ -42,6 +43,24 @@ const QuestionPanel = ({ question, result }: Props) => {
         <div className="text-xs font-mono text-muted-foreground">
           <span className="text-primary">constraints:</span>{" "}
           {question.constraints}
+        </div>
+      )}
+
+      {language === "javascript" && (
+        <div className="bg-yellow-500/10 border border-yellow-500 rounded-md p-3 font-mono text-xs shadow-[0_0_10px_rgba(234,179,8,0.4)] animate-pulse">
+          <div className="text-yellow-400 font-semibold mb-2">
+            ⚠ JavaScript Input Hint
+          </div>
+
+          <pre className="text-yellow-200 whitespace-pre-wrap">
+            {`const fs = require("fs");
+const input = fs.readFileSync(0,"utf8").trim().split("\\n");`}
+          </pre>
+
+          <div className="text-yellow-300 mt-2 text-[11px]">
+            Use <span className="font-bold">input[0]</span>,{" "}
+            <span className="font-bold">input[1]</span> etc to read lines.
+          </div>
         </div>
       )}
 

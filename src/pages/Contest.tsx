@@ -63,7 +63,7 @@ const Contest = () => {
       document.removeEventListener("contextmenu", disableRightClick);
     };
   }, []);
-  
+
   useEffect(() => {
     const poolNum = parseInt(localStorage.getItem("selectedPool") || "0");
     const found = pools.find((p) => p.poolNumber === poolNum);
@@ -329,7 +329,11 @@ const Contest = () => {
 
       <div className="flex flex-1">
         <div className="w-1/2 border-r p-4">
-          <QuestionPanel question={question} result={results[currentQ]} />
+          <QuestionPanel
+            question={question}
+            result={results[currentQ]}
+            language={languages[currentQ] || "python"}
+          />
         </div>
 
         <div className="w-1/2">
