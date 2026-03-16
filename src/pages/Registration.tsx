@@ -177,6 +177,30 @@ const Registration = () => {
               <li>• Once submitted, code cannot be modified.</li>
               <li>• Score is based on passed test cases.</li>
               <li>• Leaderboard ranks by score then time.</li>
+              <li>
+                • Python is selected as the default language for each question.
+              </li>
+              <li>
+                • Python is selected as the default language for each question.
+              </li>
+              <li>
+                • Always verify the selected language before starting a
+                question.
+              </li>
+              <li>
+                • Change the language manually if you want to use another
+                language.
+              </li>
+              <li>• The editor is not like VS Code.Its similar to NotePad</li>
+              <li>
+                • Participants must type everything manually (brackets, braces,
+                quotes, etc.).
+              </li>
+              <li>• Python users should use the Spacebar for indentation.</li>
+              <li>
+                • Avoid pressing TAB unnecessarily it may trigger code
+                submission.
+              </li>
             </ul>
           </div>
         </div>

@@ -9,6 +9,7 @@ import PoolSelection from "./pages/PoolSelection";
 import Contest from "./pages/Contest";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
+import DemoContest from "./pages/DemoContest";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Registration />} />
           <Route path="/pool-selection" element={<PoolSelection />} />
+          <Route path="/demo" element={<DemoContest />} />
           <Route path="/contest" element={<Contest />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />

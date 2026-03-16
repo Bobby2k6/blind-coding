@@ -18,7 +18,7 @@ const PoolSelection = () => {
     localStorage.setItem("selectedPool", String(num));
     localStorage.setItem("questionResults", JSON.stringify({}));
     localStorage.setItem("questionTimes", JSON.stringify({}));
-    navigate("/contest");
+    navigate("/demo");
   };
 
   return (
