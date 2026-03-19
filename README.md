@@ -1,9 +1,5 @@
 # 🚀 Project Setup Guide
 
-## 🔗 Project Link  
-You can access the project here:  
-👉 https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID  
-
 ---
 
 ## 🛠️ Working on the Project
